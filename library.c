@@ -7,9 +7,31 @@ double calcMulti(double n1, double n2);
 double calcDiv(double n1, double n2);
 double calcSqrt(double n);
 double calcPower(double n);
+void GetNumberes(int arr[],int n);
+void GetAvg(int arr[],int n);
+int GetSum(int arr[],int n);
 
 double calcSum(double n1, double n2){
     return n1+n2;
+}
+
+void GetNumberes(int arr[],int n){
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+}
+void GetAvg(int arr[],int n){
+    double avg;
+    avg=(double)GetSum(arr,n)/n;
+    printf("The avarage is:");
+    printf("%.2lf",avg);
+}
+int GetSum(int arr[],int n){
+    int sum=0;
+    for(int i=0;i<n;i++) {
+        sum += arr[i];
+    }
+    return sum;
 }
 
 double calcSub(double n1, double n2){
@@ -45,11 +67,14 @@ int main() {
                "3-Multiplication \n"
                "4-Division \n"
                "5-Square Root \n"
-               "6-Power");
+               "6-Power \n"
+               "7-Calculate Average");
         int choice;
         scanf("%d", &choice);
         printf("\n");
         double n1,n2;
+        int n;
+
         printf("Enter 2 numbers: ");
         scanf("%lf %lf", &n1, &n2);
 
@@ -84,6 +109,13 @@ int main() {
                 scanf("%d", &num);
                 printf("\n");
                 printf("Power: %lf", calcPower(num));
+                break;
+            case 7:
+                printf("Enter the number of numbers that you want to find the avarage\n");
+                scanf("%d",&n);
+                int arr[n];
+                GetNumberes(arr,n);
+                GetAvg(arr,n);
                 break;
         }
         printf("\n");
